@@ -130,6 +130,14 @@
             
                 <!-- Row 2 -->
                 <div class="skills-row">
+
+                <div class="skills-box">
+                    <div class="skills-header"><h3>Machine Learning & Analytics</h3></div>
+                    <div class="skills-list">
+                    <span>Orange</span><span>Python</span>
+                    </div>
+                </div>
+
                 <div class="skills-box">
                     <div class="skills-header"><h3>Networking & Security</h3></div>
                     <div class="skills-list">
@@ -139,12 +147,7 @@
                     </div>                  
                 </div>
             
-                <div class="skills-box">
-                    <div class="skills-header"><h3>Machine Learning & Analytics</h3></div>
-                    <div class="skills-list">
-                    <span>Orange</span><span>Python</span>
-                    </div>
-                </div>
+                
                 </div>
             </div>
   
@@ -162,15 +165,15 @@
                     <h3>Software Engineering</h3>
                     <label>Apps, games, and full-stack tools</label>
                   </div>
-                  <div class="project-box" onclick="showProjects('networking')">
-                    <i class="uil uil-users-alt"></i>
-                    <h3>Networking & Security</h3>
-                    <label>Monitoring tools, security scripts</label>
-                  </div>
                   <div class="project-box" onclick="showProjects('ml')">
                     <i class="uil uil-award"></i>
                     <h3>Machine Learning & Analytics</h3>
                     <label>Predictive models and analysis</label>
+                  </div>
+                  <div class="project-box" onclick="showProjects('networking')">
+                    <i class="uil uil-users-alt"></i>
+                    <h3>Networking & Security</h3>
+                    <label>Monitoring tools, security scripts</label>
                   </div>
                 </div>
               
@@ -191,23 +194,27 @@
                   </div>
                 </div>
               
-                <div class="project-cards" id="networking" style="display: none;">
+                <div class="project-cards" id="ml" style="display: none;">
                   <div class="project-card">
-                    <h3>Wireshark Packet Logs</h3>
-                    <p>Analyzed network traffic and filtered out suspicious packets.</p>
+                    <h3>Store Profit Predictor</h3>
+                    <p>ML model that predicts profitability using Orange and Python.</p>
                   </div>
                   <div class="project-card">
                     <h3>Net Tools Script</h3>
                     <p>Built a tool using `ping`, `traceroute`, and `netstat` for diagnostics.</p>
                   </div>
                 </div>
-              
-                <div class="project-cards" id="ml" style="display: none;">
-                  <div class="project-card">
-                    <h3>Store Profit Predictor</h3>
-                    <p>ML model that predicts profitability using Orange and Python.</p>
+
+                <div class="project-cards" id="networking" style="display: none;">
+                    <div class="project-card">
+                      <h3>Wireshark Packet Logs</h3>
+                      <p>Analyzed network traffic and filtered out suspicious packets.</p>
+                    </div>
+                    <div class="project-card">
+                      <h3>Net Tools Script</h3>
+                      <p>Built a tool using `ping`, `traceroute`, and `netstat` for diagnostics.</p>
+                    </div>
                   </div>
-                </div>
               </section>              
 
        <!-- -------------- CONTACT BOX ---------------- -->
@@ -221,8 +228,8 @@
              <div class="col">
                 <div class="contact-info">
                     <h2>Find Me <i class="uil uil-corner-right-down"></i></h2>
-                    <p><i class="uil uil-envelope"></i> Email: john@doe.com</p>
-                    <p><i class="uil uil-phone"></i> Tel: +250 708 770 000</p>
+                    <p><i class="uil uil-envelope"></i> Email: simeonlavarias@gmail.com</p>
+                    <p><i class="uil uil-phone"></i> Tel: +971 55 465 9304</p>
                 </div>
              </div>
              <div class="col">
