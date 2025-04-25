@@ -208,11 +208,11 @@ nav {
     display: flex;
     gap: 20px;
 }
-.featured-text-btn>.blue-btn{
+.featured-text-btn>.orange-btn{
     background: var(--first-color);
     color: var(--color-white);
 }
-.featured-text-btn>.blue-btn:hover{
+.featured-text-btn>.orange-btn:hover{
     background: var(--first-color-hover);
 }
 .social_icons{
@@ -443,13 +443,13 @@ h3{
 
 /* ----- PROJECT CARDS (Detailed View) ----- */
 .project-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.5rem;
+    display: none; /* hidden by default, shown via JS */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
     margin-top: 2rem;
     padding: 0 2rem;
-    display: none; /* Hidden by default, shown by JS */
-}
+  }
+  
 
 .project-card {
     background-color: var(--color-white);
@@ -459,26 +459,85 @@ h3{
     box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
     transition: transform 0.3s ease-in-out;
     position: relative;
-}
-
-.project-card:hover {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .project-card:hover {
     transform: translateY(-6px);
-}
+  }
+  
+  .project-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+  
+  .tech-tags span {
+    font-size: 14px;
+    background: var(--hover-orange);
+    color: var(--color-white);
+    padding: 2px 10px;
+    border-radius: 5px;
+  }  
+  
+  .project-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+  
+  .project-links .btn {
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #efefef; /* match global .btn */
+    color: var(--text-color-second);
+    border-radius: 10px;
+    text-decoration: none;
+    transition: 0.3s;
+    display: inline-block;
+  }
+  
+  .project-links .btn:hover {
+    background-color: var(--hover-orange);
+    color: var(--color-white);
+  }  
+
+  @media only screen and (max-width: 540px) {
+    .project-img {
+      height: 140px;
+    }
+  
+    .project-links .btn {
+      font-size: 12px;
+      padding: 6px 12px;
+    }
+  
+    .tech-tags span {
+      font-size: 12px;
+      padding: 2px 8px;
+    }
+  }
+  
+  
 
 /* Back Button styling */
 #backButton {
     display: none;
     text-align: center;
     margin-top: 30px;
-}
-
-#backButton .btn {
-    background-color: var(--hover-orange);
-    color: var(--color-white);
-}
-
-#backButton .btn:hover {
-    background-color: var(--third-color);
 }
 
 .project-cards.show {
@@ -495,16 +554,28 @@ h3{
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start; /* align everything from top down */
     align-items: center;
     text-align: center;
     width: 30%;
-    height: 250px;
-    padding: 20px;
+    height: 280px;
+    padding: 30px 20px; /* more vertical padding for balance */
     background: var(--color-white);
     border-radius: 20px;
     box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
     overflow: hidden;
+    gap: 12px; /* consistent vertical gap between elements */
+}
+
+.project-box h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-color-second);
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
 }
 
 .project-box>i{
@@ -615,12 +686,8 @@ textarea{
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--hover-orange);
-    color: var(--color-white);
 }
-.form-button>.btn:hover{
-    background: var(--hover-orange);
-}
+
 .form-button i{
     font-size: 18px;
     rotate: -45deg;
