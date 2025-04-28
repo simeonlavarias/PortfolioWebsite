@@ -1,361 +1,438 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- --------- UNICONS ---------- -->
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+  <!-- --------- UNICONS ---------- -->
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 
-    <!-- --------- CSS ---------- -->
-    <link rel="stylesheet" href="assets/css/style.css">
+  <!-- --------- CSS ---------- -->
+  <link rel="stylesheet" href="assets/css/style.css">
 
-    <!-- --------- FAVICON ---------- -->
-    <link rel="shortcut icon" href="assets/images/favicon.jpg" type="image/x-icon">
+  <!-- --------- FAVICON ---------- -->
+  <link rel="shortcut icon" href="assets/images/favicon.jpg" type="image/x-icon">
 
-    <title>Simeon | Portfolio</title>
+  <title>Simeon | Portfolio</title>
 </head>
+
 <body>
-   <div class="container">
+  <div class="container">
     <!-- --------------- HEADER --------------- -->
-      <nav id="header">
-        <div class="nav-logo">
-            <a href="#home">
-                <img src="assets/images/logo.png" alt="Simeon Logo" class="logo-img">
-            </a>
-        </div>              
-        <div class="nav-menu" id="myNavMenu">
-            <ul class="nav_menu_list">
-                <li class="nav_list">
-                    <a href="#home" class="nav-link active-link">Home</a>
-                    <div class="circle"></div>
-                </li>
-                <li class="nav_list">
-                    <a href="#about" class="nav-link">About</a>
-                    <div class="circle"></div>
-                </li>
-                <li class="nav_list">
-                    <a href="#projects" class="nav-link">Projects</a>
-                    <div class="circle"></div>
-                </li>
-                <li class="nav_list">
-                    <a href="#contact" class="nav-link">Contact</a>
-                    <div class="circle"></div>
-                </li>
-            </ul>
-        </div>
-        <div class="nav-button">
-            <button class="btn toggle-theme" id="theme-toggle">
-                ⏾ Dark Mode
-            </button>
-        </div>         
-        <div class="nav-menu-btn">
-            <i class="uil uil-bars" onclick="myMenuFunction()"></i>
-        </div>
-      </nav>
+    <nav id="header">
+      <div class="nav-logo">
+        <a href="#home">
+          <img src="assets/images/logo.png" alt="Simeon Logo" class="logo-img">
+        </a>
+      </div>
+      <div class="nav-menu" id="myNavMenu">
+        <ul class="nav_menu_list">
+          <li class="nav_list">
+            <a href="#home" class="nav-link active-link">Home</a>
+            <div class="circle"></div>
+          </li>
+          <li class="nav_list">
+            <a href="#about" class="nav-link">About</a>
+            <div class="circle"></div>
+          </li>
+          <li class="nav_list">
+            <a href="#projects" class="nav-link">Projects</a>
+            <div class="circle"></div>
+          </li>
+          <li class="nav_list">
+            <a href="#contact" class="nav-link">Contact</a>
+            <div class="circle"></div>
+          </li>
+        </ul>
+      </div>
+      <div class="nav-button">
+        <button class="btn toggle-theme" id="theme-toggle">
+          ⏾ Dark Mode
+        </button>
+      </div>
+      <div class="nav-menu-btn">
+        <i class="uil uil-bars" onclick="myMenuFunction()"></i>
+      </div>
+    </nav>
 
 
     <!-- -------------- MAIN ---------------- -->
     <main class="wrapper">
-       <!-- -------------- FEATURED BOX ---------------- -->
-       <section class="featured-box" id="home">
-          <div class="featured-text">
-            <div class="featured-text-card">
-                <span>Hi there!</span>
-            </div>
-            <div class="featured-name">
-                <p>I'm <span class="typedText"></span></p>
-            </div>
-            <div class="featured-text-info">
-                <p>Skilled in building and testing software, backed by knowledge in networking and security principles.
-                </p>
-            </div>
-            <div class="featured-text-btn">
-                <button class="btn">Download CV <i class="uil uil-file-alt"></i></button>
-            </div>
-            <div class="social_icons">
-                <div class="icon"><i class="uil uil-instagram"></i></div>
-                <div class="icon"><i class="uil uil-linkedin-alt"></i></div>
-                <div class="icon"><i class="uil uil-dribbble"></i></div>
-                <div class="icon"><i class="uil uil-github-alt"></i></div>
-            </div>
+      <!-- -------------- FEATURED BOX ---------------- -->
+      <section class="featured-box" id="home">
+        <div class="featured-text">
+          <div class="featured-text-card">
+            <span>Hi there!</span>
           </div>
-          <div class="featured-image">
-            <div class="image">
-                <img src="assets/images/avatar.jpg" alt="avatar">
+          <div class="featured-name">
+            <p>I'm <span class="typedText"></span></p>
+          </div>
+          <div class="featured-text-info">
+            <p>Skilled in building and testing software, backed by knowledge in networking and security principles.
+            </p>
+          </div>
+          <div class="featured-text-btn">
+            <button class="btn">Download CV <i class="uil uil-file-alt"></i></button>
+          </div>
+          <div class="social_icons">
+            <div class="icon"><i class="uil uil-instagram"></i></div>
+            <div class="icon"><i class="uil uil-linkedin-alt"></i></div>
+            <div class="icon"><i class="uil uil-dribbble"></i></div>
+            <div class="icon"><i class="uil uil-github-alt"></i></div>
+          </div>
+        </div>
+        <div class="featured-image">
+          <div class="image">
+            <img src="assets/images/avatar.jpg" alt="avatar">
+          </div>
+        </div>
+
+      </section>
+      <!-- -------------- ABOUT BOX ---------------- -->
+      <section class="section" id="about">
+        <div class="top-header">
+          <h1>About Me</h1>
+        </div>
+
+        <div class="about-wrapper">
+          <!-- Introduction -->
+          <div class="about-info">
+            <h3>My introduction</h3>
+            <p>
+              I'm a BSc (Hons) Software Engineering student at the University of
+              Stirling, seeking an internship in the technology industry. Combining expertise
+              in software development and testing with a strong grasp of networking and cybersecurity.
+              Passionate about application security, with interest in secure coding and
+              threat mitigation. Strong problem-solving and communication skills.
+            </p>
+          </div>
+
+          <!-- Skills Section -->
+          <div class="skills-section">
+
+            <!-- Row 1 -->
+            <div class="skills-row">
+              <div class="skills-box dev-skills">
+                <div class="skills-header">
+                  <h3>Software Development</h3>
+                </div>
+                <div class="skills-list">
+                  <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Bootstrap</span>
+                  <div class="skill-break"></div>
+                  <span>Python</span><span>Java</span><span>MySQL</span><span>Flask</span>
+                </div>
+              </div>
+
+              <div class="skills-box">
+                <div class="skills-header">
+                  <h3>Software Testing</h3>
+                </div>
+                <div class="skills-list">
+                  <span>JUnit</span><span>Selenium</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="skills-row">
+
+              <div class="skills-box">
+                <div class="skills-header">
+                  <h3>Machine Learning & Analytics</h3>
+                </div>
+                <div class="skills-list">
+                  <span>Orange</span><span>Python</span>
+                </div>
+              </div>
+
+              <div class="skills-box">
+                <div class="skills-header">
+                  <h3>Networking & Security</h3>
+                </div>
+                <div class="skills-list">
+                  <span>Wireshark</span><span>Ping / Traceroute</span>
+                  <div class="skill-break"></div>
+                  <span>ipconfig / netstat</span>
+                </div>
+              </div>
+
+
             </div>
           </div>
 
-       </section>
-       <!-- -------------- ABOUT BOX ---------------- -->
-        <section class="section" id="about">
+
+          <section class="section" id="projects">
             <div class="top-header">
-            <h1>About Me</h1>
+              <h1>Projects</h1>
+              <span>Click on a category to view specific projects</span>
             </div>
-        
-            <div class="about-wrapper">
-            <!-- Introduction -->
-            <div class="about-info">
-                <h3>My introduction</h3>
-                <p>
-                I'm a BSc (Hons) Software Engineering student at the University of 
-                Stirling, seeking an internship in the technology industry. Combining expertise 
-                in software development and testing with a strong grasp of networking and cybersecurity. 
-                Passionate about application security, with interest in secure coding and 
-                threat mitigation. Strong problem-solving and communication skills.
-                </p>
+
+            <!-- Project Categories -->
+            <div class="project-container" id="projectCategories">
+              <div class="project-box" onclick="showProjects('software')">
+                <i class="uil uil-briefcase-alt"></i>
+                <h3>Software Engineering</h3>
+                <label>Apps, games, and full-stack tools</label>
+              </div>
+              <div class="project-box" onclick="showProjects('ml')">
+                <i class="uil uil-award"></i>
+                <h3>ML & Analytics</h3>
+                <label>Predictive models and analysis</label>
+              </div>
+              <div class="project-box" onclick="showProjects('networking')">
+                <i class="uil uil-users-alt"></i>
+                <h3>Networking & Security</h3>
+                <label>Monitoring tools, security scripts</label>
+              </div>
             </div>
-        
-           <!-- Skills Section -->
-            <div class="skills-section">
 
-                <!-- Row 1 -->
-                <div class="skills-row">
-                <div class="skills-box dev-skills">
-                    <div class="skills-header"><h3>Software Development</h3></div>
-                    <div class="skills-list">
-                    <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Bootstrap</span>
-                    <div class="skill-break"></div>
-                    <span>Python</span><span>Java</span><span>MySQL</span><span>Flask</span>
-                    </div>                                            
-                </div>                  
-            
-                <div class="skills-box">
-                    <div class="skills-header"><h3>Software Testing</h3></div>
-                    <div class="skills-list">
-                    <span>JUnit</span><span>Selenium</span>
-                    </div>
-                </div>
-                </div>
-            
-                <!-- Row 2 -->
-                <div class="skills-row">
-
-                <div class="skills-box">
-                    <div class="skills-header"><h3>Machine Learning & Analytics</h3></div>
-                    <div class="skills-list">
-                    <span>Orange</span><span>Python</span>
-                    </div>
-                </div>
-
-                <div class="skills-box">
-                    <div class="skills-header"><h3>Networking & Security</h3></div>
-                    <div class="skills-list">
-                    <span>Wireshark</span><span>Ping / Traceroute</span>
-                    <div class="skill-break"></div>
-                    <span>ipconfig / netstat</span>
-                    </div>                  
-                </div>
-            
-                
-                </div>
+            <!-- Back Button -->
+            <div id="backButton" style="display: none; margin-top: 20px;">
+              <button class="btn" onclick="goBack()">← Back to Categories</button>
             </div>
-  
-  
-            <section class="section" id="projects">
-                <div class="top-header">
-                  <h1>Projects</h1>
-                  <span>Click on a category to view specific projects</span>
-                </div>
-              
-                <!-- Project Categories -->
-                <div class="project-container" id="projectCategories">
-                  <div class="project-box" onclick="showProjects('software')">
-                    <i class="uil uil-briefcase-alt"></i>
-                    <h3>Software Engineering</h3>
-                    <label>Apps, games, and full-stack tools</label>
-                  </div>
-                  <div class="project-box" onclick="showProjects('ml')">
-                    <i class="uil uil-award"></i>
-                    <h3>ML & Analytics</h3>
-                    <label>Predictive models and analysis</label>
-                  </div>
-                  <div class="project-box" onclick="showProjects('networking')">
-                    <i class="uil uil-users-alt"></i>
-                    <h3>Networking & Security</h3>
-                    <label>Monitoring tools, security scripts</label>
-                  </div>
-                </div>
-              
-                <!-- Back Button -->
-                <div id="backButton" style="display: none; margin-top: 20px;">
-                  <button class="btn" onclick="goBack()">← Back to Categories</button>
-                </div>
-              
-                <!-- Project Cards -->
-                <div class="project-cards" id="software" style="display: none;">
-                    <div class="project-card">
-                      <img src="assets/images/cyber-forager.png" alt="Cyber Forager Preview" class="project-img">
-                      <h3>Cyber Forager</h3>
-                      <p>2D Java game with parallax effects and custom GameCore engine.</p>
-                      <div class="tech-tags">
-                        <span>Java</span>
-                        <span>GameCore</span>
-                      </div>
-                      <div class="project-links">
-                        <a href="#" class="btn">Demo</a>
-                        <a href="#" class="btn">Source</a>
-                      </div>
-                    </div>
-                
-                    <!-- 🚀 New Project -->
-                    <div class="project-card">
-                      <img src="assets/images/flask-blog.png" alt="Flask Blog App Preview" class="project-img">
-                      <h3>Flask Blog App</h3>
-                      <p>A simple blog application built with Flask, SQLite, and Bootstrap.</p>
-                      <div class="tech-tags">
-                        <span>Flask</span>
-                        <span>Python</span>
-                        <span>Bootstrap</span>
-                      </div>
-                      <div class="project-links">
-                        <a href="#" class="btn">Demo</a>
-                        <a href="#" class="btn">Source</a>
-                      </div>
-                    </div>
-                </div>                      
-                
-                  <div class="project-cards" id="ml" style="display: none;">
-                    <div class="project-card">
-                      <img src="assets/images/store-profit.png" alt="Store Profit Predictor" class="project-img">
-                      <h3>Store Profit Predictor</h3>
-                      <p>ML model that predicts profitability using Orange and Python.</p>
-                      <div class="tech-tags">
-                        <span>Orange</span>
-                        <span>Python</span>
-                      </div>
-                      <div class="project-links">
-                        <a href="#" class="btn">Demo</a>
-                        <a href="#" class="btn">Source</a>
-                      </div>
-                    </div>
-                  
-                    <div class="project-card">
-                      <img src="assets/images/net-tools.png" alt="Net Tools Script" class="project-img">
-                      <h3>Net Tools Script</h3>
-                      <p>Built a script using ping, traceroute, and netstat for diagnostics.</p>
-                      <div class="tech-tags">
-                        <span>Shell</span>
-                        <span>Networking</span>
-                      </div>
-                      <div class="project-links">
-                        <a href="#" class="btn">Demo</a>
-                        <a href="#" class="btn">Source</a>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div class="project-cards" id="networking" style="display: none;">
-                    <div class="project-card">
-                      <img src="assets/images/wireshark.png" alt="Wireshark Packet Logs" class="project-img">
-                      <h3>Wireshark Packet Logs</h3>
-                      <p>Analyzed network traffic and filtered out suspicious packets.</p>
-                      <div class="tech-tags">
-                        <span>Wireshark</span>
-                        <span>Packet Analysis</span>
-                      </div>
-                      <div class="project-links">
-                        <a href="#" class="btn">Demo</a>
-                        <a href="#" class="btn">Source</a>
-                      </div>
-                    </div>
-                  
-                    <div class="project-card">
-                      <img src="assets/images/net-tools.png" alt="Net Tools Script" class="project-img">
-                      <h3>Net Tools Script</h3>
-                      <p>Built a script using ping, traceroute, and netstat for diagnostics.</p>
-                      <div class="tech-tags">
-                        <span>Ping</span>
-                        <span>Traceroute</span>
-                        <span>Netstat</span>
-                      </div>
-                      <div class="project-links">
-                        <a href="#" class="btn">Demo</a>
-                        <a href="#" class="btn">Source</a>
-                      </div>
-                    </div>
-                  </div>
-                             
 
-       <!-- -------------- CONTACT BOX ---------------- -->
+            <!-- Project Cards -->
+            <!-- Project Cards -->
+            <div class="project-cards" id="software" style="display: none;">
 
-       <section class="section" id="contact">
-          <div class="top-header">
-            <h1>Get in touch</h1>
-            <span>Do you have a project in your mind, contact me here</span>
-          </div>
-          <div class="row">
-             <div class="col">
-                <div class="contact-info">
+              <div class="project-card">
+                <img src="assets/images/cyber-forager.jpg" alt="Cyber Forager Preview" class="project-img">
+                <h3>Cyber Forager</h3>
+                <p>2D platformer game with parallax effects built using Java GameCore library.</p>
+                <div class="tech-tags">
+                  <span>Java</span>
+                  <span>GameCore</span>
+                </div>
+                <div class="project-links">
+                  <a href="#" class="btn">Demo</a>
+                  <a href="#" class="btn">Source</a>
+                </div>
+              </div>
+
+              <div class="project-card">
+                <img src="assets/images/dme-system.jpg" alt="DME System Preview" class="project-img">
+                <h3>Distributed Mutual Exclusion System</h3>
+                <p>DME system implemented in Java using sockets for centralized coordination.</p>
+                <div class="tech-tags">
+                  <span>Java</span>
+                  <span>Sockets</span>
+                  <span>Multithreading</span>
+                  <span>Distributed Systems</span>
+                </div>
+                <div class="project-links">
+                  <a href="#" class="btn">Demo</a>
+                  <a href="#" class="btn">Source</a>
+                </div>
+              </div>
+
+              <div class="project-card">
+                <img src="assets/images/document-generator.jpg" alt="Document Generator Preview" class="project-img">
+                <h3>Automated Document Generator</h3>
+                <p>Flask-based web app that generates Word and PDF documents from Excel uploads.</p>
+                <div class="tech-tags">
+                  <span>Python</span>
+                  <span>Flask</span>
+                  <span>Pandas</span>
+                  <span>DocxTpl</span>
+                </div>
+                <div class="project-links">
+                  <a href="#" class="btn">Demo</a>
+                  <a href="#" class="btn">Source</a>
+                </div>
+              </div>
+
+              <div class="project-card">
+                <img src="assets/images/pac-hub.jpg" alt="PacHub Website Preview" class="project-img">
+                <h3>PacHub</h3>
+                <p>Manny Pacquiao fan website designed as an interactive fanzine using HTML, CSS, Bootstrap, and JavaScript.</p>
+                <div class="tech-tags">
+                  <span>HTML</span>
+                  <span>CSS</span>
+                  <span>JavaScript</span>
+                  <span>Bootstrap</span>
+                </div>
+                <div class="project-links">
+                  <a href="#" class="btn">Demo</a>
+                  <a href="#" class="btn">Source</a>
+                </div>
+              </div>
+
+              <div class="project-card">
+                <img src="assets/images/ofwb-system.jpg" alt="OFWB System Preview" class="project-img">
+                <h3>Online Fitness Workshop Booking System</h3>
+                <p>Java Swing desktop app for booking fitness classes, managing participants and trainers.</p>
+                <div class="tech-tags">
+                  <span>Java</span>
+                  <span>Swing</span>
+                  <span>OOP</span>
+                </div>
+                <div class="project-links">
+                  <a href="#" class="btn">Demo</a>
+                  <a href="#" class="btn">Source</a>
+                </div>
+              </div>
+
+              <div class="project-card">
+                <img src="assets/images/ofwb-system.jpg" alt="OFWB System Preview" class="project-img">
+                <h3>Online Fitness Workshop Booking System</h3>
+                <p>Java Swing desktop app for booking fitness classes, managing participants and trainers.</p>
+                <div class="tech-tags">
+                  <span>Java</span>
+                  <span>Swing</span>
+                  <span>OOP</span>
+                </div>
+                <div class="project-links">
+                  <a href="#" class="btn">Demo</a>
+                  <a href="#" class="btn">Source</a>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="project-cards" id="ml" style="display: none;">
+              <div class="project-card">
+                <img src="assets/images/store-profit.png" alt="Store Profit Predictor" class="project-img">
+                <h3>Store Profit Predictor</h3>
+                <p>ML model that predicts profitability using Orange and Python.</p>
+                <div class="tech-tags">
+                  <span>Orange</span>
+                  <span>Python</span>
+                </div>
+                <div class="project-links">
+                  <a href="#" class="btn">Demo</a>
+                  <a href="#" class="btn">Source</a>
+                </div>
+              </div>
+
+              <div class="project-card">
+                <img src="assets/images/net-tools.png" alt="Net Tools Script" class="project-img">
+                <h3>Net Tools Script</h3>
+                <p>Built a script using ping, traceroute, and netstat for diagnostics.</p>
+                <div class="tech-tags">
+                  <span>Shell</span>
+                  <span>Networking</span>
+                </div>
+                <div class="project-links">
+                  <a href="#" class="btn">Demo</a>
+                  <a href="#" class="btn">Source</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-cards" id="networking" style="display: none;">
+              <div class="project-card">
+                <img src="assets/images/wireshark.png" alt="Wireshark Packet Logs" class="project-img">
+                <h3>Wireshark Packet Logs</h3>
+                <p>Analyzed network traffic and filtered out suspicious packets.</p>
+                <div class="tech-tags">
+                  <span>Wireshark</span>
+                  <span>Packet Analysis</span>
+                </div>
+                <div class="project-links">
+                  <a href="#" class="btn">Demo</a>
+                  <a href="#" class="btn">Source</a>
+                </div>
+              </div>
+
+              <div class="project-card">
+                <img src="assets/images/net-tools.png" alt="Net Tools Script" class="project-img">
+                <h3>Net Tools Script</h3>
+                <p>Built a script using ping, traceroute, and netstat for diagnostics.</p>
+                <div class="tech-tags">
+                  <span>Ping</span>
+                  <span>Traceroute</span>
+                  <span>Netstat</span>
+                </div>
+                <div class="project-links">
+                  <a href="#" class="btn">Demo</a>
+                  <a href="#" class="btn">Source</a>
+                </div>
+              </div>
+            </div>
+
+
+            <!-- -------------- CONTACT BOX ---------------- -->
+
+            <section class="section" id="contact">
+              <div class="top-header">
+                <h1>Get in touch</h1>
+                <span>Do you have a project in your mind, contact me here</span>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="contact-info">
                     <h2>Find Me <i class="uil uil-corner-right-down"></i></h2>
                     <p><i class="uil uil-envelope"></i> Email: simeonlavarias@gmail.com</p>
                     <p><i class="uil uil-phone"></i> Tel: +971 55 465 9304</p>
+                  </div>
                 </div>
-             </div>
-             <div class="col">
-                <div class="form-control">
+                <div class="col">
+                  <div class="form-control">
                     <div class="form-inputs">
-                        <input type="text" class="input-field" placeholder="Name">
-                        <input type="text" class="input-field" placeholder="Email">
+                      <input type="text" class="input-field" placeholder="Name">
+                      <input type="text" class="input-field" placeholder="Email">
                     </div>
                     <div class="text-area">
-                        <textarea placeholder="Message"></textarea>
+                      <textarea placeholder="Message"></textarea>
                     </div>
                     <div class="form-button">
-                        <button class="btn">Send <i class="uil uil-message"></i></button>
+                      <button class="btn">Send <i class="uil uil-message"></i></button>
                     </div>
+                  </div>
                 </div>
-             </div>
-          </div>
-       </section>
+              </div>
+            </section>
 
     </main>
 
 
     <!-- --------------- FOOTER --------------- -->
     <footer>
-        <div class="top-footer">
-            <p>Simeon Carlos Lavarias</p>
-        </div>
-        <div class="middle-footer">
-            <ul class="footer-menu">
-                <li class="footer_menu_list">
-                    <a href="#home">Home</a>
-                </li>
-                <li class="footer_menu_list">
-                    <a href="#about">About</a>
-                </li>
-                <li class="footer_menu_list">
-                    <a href="#projects">Projects</a>
-                </li>
-                <li class="footer_menu_list">
-                    <a href="#contact">Contact</a>
-                </li>
-            </ul>
-        </div>
-        <div class="footer-social-icons">
-            <div class="icon"><i class="uil uil-instagram"></i></div>
-            <div class="icon"><i class="uil uil-linkedin-alt"></i></div>
-            <div class="icon"><i class="uil uil-dribbble"></i></div>
-            <div class="icon"><i class="uil uil-github-alt"></i></div>
-        </div>
-        <div class="bottom-footer">
-            <p>Copyright &copy; <a href="#home" style="text-decoration: none;">Simeon Carlos Lavarias</a> - All rights reserved</p>
-        </div>
+      <div class="top-footer">
+        <p>Simeon Carlos Lavarias</p>
+      </div>
+      <div class="middle-footer">
+        <ul class="footer-menu">
+          <li class="footer_menu_list">
+            <a href="#home">Home</a>
+          </li>
+          <li class="footer_menu_list">
+            <a href="#about">About</a>
+          </li>
+          <li class="footer_menu_list">
+            <a href="#projects">Projects</a>
+          </li>
+          <li class="footer_menu_list">
+            <a href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer-social-icons">
+        <div class="icon"><i class="uil uil-instagram"></i></div>
+        <div class="icon"><i class="uil uil-linkedin-alt"></i></div>
+        <div class="icon"><i class="uil uil-dribbble"></i></div>
+        <div class="icon"><i class="uil uil-github-alt"></i></div>
+      </div>
+      <div class="bottom-footer">
+        <p>Copyright &copy; <a href="#home" style="text-decoration: none;">Simeon Carlos Lavarias</a> - All rights
+          reserved</p>
+      </div>
     </footer>
 
-    </div>
+  </div>
 
 
 
 
-    <!-- ----- TYPING JS Link ----- -->
-    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+  <!-- ----- TYPING JS Link ----- -->
+  <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
 
-       <!-- ----- SCROLL REVEAL JS Link----- -->
-    <script src="https://unpkg.com/scrollreveal"></script>
+  <!-- ----- SCROLL REVEAL JS Link----- -->
+  <script src="https://unpkg.com/scrollreveal"></script>
 
-    <!-- ----- MAIN JS ----- -->
-    <script src="assets/js/main.js"></script>
+  <!-- ----- MAIN JS ----- -->
+  <script src="assets/js/main.js"></script>
 </body>
+
 </html>
