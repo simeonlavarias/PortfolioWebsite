@@ -104,8 +104,13 @@ sections.forEach(current =>{
 
   if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) { 
 
-      document.querySelector('.nav-menu a[href*=' + sectionId + ']').classList.add('active-link')
-
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+      if (link.getAttribute('href') === `#${sectionId}`) {
+        link.classList.add('active-link');
+      } else {
+        link.classList.remove('active-link');
+      }
+    });
   }  else {
 
     document.querySelector('.nav-menu a[href*=' + sectionId + ']').classList.remove('active-link')

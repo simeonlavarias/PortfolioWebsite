@@ -283,6 +283,7 @@ nav {
     margin-bottom: 5em;
 }
 .top-header h1{
+    font-size: 25px;    
     font-weight: 600;
     color: var(--text-color-second);
     margin-bottom: 10px;
