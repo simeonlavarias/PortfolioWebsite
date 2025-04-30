@@ -1026,6 +1026,21 @@ body.dark-theme {
     color: var(--hover-orange);
 }
 
-* {
-    transition: background-color 0.3s ease, color 0.3s ease;
+/* Smooth dark mode transition enhancements */
+body,
+nav,
+.section,
+footer,
+.project-card,
+.about-info,
+.skills-box,
+.contact-info,
+.form-control,
+.project-cards,
+.featured-text-card span,
+.btn,
+.input-field,
+textarea,
+.icon {
+    transition: background-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
 }
