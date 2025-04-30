@@ -940,7 +940,6 @@ body.dark-theme {
 .dark-theme .section,
 .dark-theme footer,
 .dark-theme .about-info,
-.dark-theme .project-card,
 .dark-theme .form-control,
 .dark-theme .skills-box,
 .dark-theme .project-cards,
@@ -948,6 +947,12 @@ body.dark-theme {
     background-color: #121212 !important;
     color: #f0f0f0 !important;
     box-shadow: none;
+}
+
+.dark-theme .project-card {
+    background-color: #1e1e1e !important; /* or any color you prefer */
+    color: #f0f0f0 !important;
+    box-shadow: 1px 8px 10px 2px #2c2c2c; /* optional subtle shadow for dark theme */
 }
 
 .dark-theme .project-box {
@@ -1026,21 +1031,6 @@ body.dark-theme {
     color: var(--hover-orange);
 }
 
-/* Smooth dark mode transition enhancements */
-body,
-nav,
-.section,
-footer,
-.project-card,
-.about-info,
-.skills-box,
-.contact-info,
-.form-control,
-.project-cards,
-.featured-text-card span,
-.btn,
-.input-field,
-textarea,
-.icon {
-    transition: background-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+* {
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
