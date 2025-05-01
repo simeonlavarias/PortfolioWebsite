@@ -173,3 +173,43 @@ function goBack() {
     section.classList.remove("show");
   });  
 }
+
+/* ----- SHOW UNAVAILABLE TOOLTIP FOR EMPTY LINKS ----- */
+function showUnavailableMessage(button) {
+  event.preventDefault(); // prevent default link behavior
+
+  if (button.getAttribute('href') === '#') {
+    const tooltip = document.createElement('span');
+    tooltip.textContent = "Not available yet!";
+    tooltip.style.position = 'absolute';
+    tooltip.style.background = '#333';
+    tooltip.style.color = '#fff';
+    tooltip.style.padding = '5px 10px';
+    tooltip.style.borderRadius = '5px';
+    tooltip.style.fontSize = '12px';
+    tooltip.style.zIndex = 1000;
+    tooltip.style.opacity = 0;
+    tooltip.style.transition = 'opacity 0.4s ease';
+
+    // Calculate button position
+    const rect = button.getBoundingClientRect();
+    tooltip.style.left = rect.left + window.scrollX + 'px';
+    tooltip.style.top = rect.top + window.scrollY - 30 + 'px';
+
+    document.body.appendChild(tooltip);
+
+    // Trigger fade-in
+    requestAnimationFrame(() => {
+      tooltip.style.opacity = 1;
+    });
+
+    // Fade out and remove after 2s
+    setTimeout(() => {
+      tooltip.style.opacity = 0;
+      setTimeout(() => {
+        tooltip.remove();
+      }, 400); // Wait for fade-out to complete
+    }, 1600);
+  }
+}
+

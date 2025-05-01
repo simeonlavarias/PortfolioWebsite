@@ -929,6 +929,22 @@ footer {
     }
 }
 
+/* ----- THANK YOU MESSAGE POPUP ----- */
+#thankYouMessage {
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #333;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
 /* ----- DARK THEME STYLES ----- */
 body.dark-theme {
     background-color: #121212;
@@ -1030,6 +1046,12 @@ body.dark-theme {
 .dark-theme .icon:hover {
     color: var(--hover-orange);
 }
+
+body.dark-theme #thankYouMessage {
+    background-color: #222;
+    color: #f0f0f0;
+}
+
 
 * {
     transition: background-color 0.4s ease, color 0.4s ease;
