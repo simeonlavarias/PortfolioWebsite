@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Thank You!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Poppins Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #fafafa;
+      --primary-color: #ff7b00;
+      --text-color: #333;
+      --btn-bg: #efefef;
+      --btn-hover: var(--primary-color);
+      --btn-text: #333;
+      --btn-text-hover: #fff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .thank-you-container {
+      max-width: 600px;
+      background: #fff;
+      padding: 3rem 2rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    .thank-you-container h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
+
+    .thank-you-container p {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      color: var(--text-color);
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--btn-bg);
+      color: var(--btn-text);
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: var(--btn-hover);
+      color: var(--btn-text-hover);
+    }
+  </style>
+</head>
+<body>
+  <div class="thank-you-container">
+    <h1>Thank you!</h1>
+    <p>Your message has been successfully sent. I'll get back to you as soon as I can.</p>
+    <a href="index.html" class="btn">Return to Homepage</a>
+  </div>
+</body>
+</html>

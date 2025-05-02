@@ -56,14 +56,20 @@ html {
 
 /* ----- GLOBAL BUTTON DESIGN ----- */
 .btn {
-    font-weight: 500;
-    padding: 12px 20px;
-    background: #efefef;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: .4s;
+  font-size: 13px;                 /* ensure consistent size */
+  font-weight: 500;
+  padding: 12px 20px;
+  background: #efefef;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: .4s;
+  color: var(--text-color-second);
+  text-decoration: none;
+  display: inline-flex;            /* aligns icon & text better */
+  align-items: center;
 }
+
 
 .btn>i {
     margin-left: 10px;
@@ -71,7 +77,13 @@ html {
 
 .btn:hover {
     background: var(--hover-orange);
-    color: var(--color-white);
+    color: var(--color-white) !important;
+}
+
+.btn:link,
+.btn:visited {
+  color: var(--text-color-second);
+  text-decoration: none;
 }
 
 /* ----- GLOBAL ICONS DESIGN ----- */

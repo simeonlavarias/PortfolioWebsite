@@ -20,7 +20,7 @@
 <body>
   <div id="loader">
     <p id="loading-text"></p>
-  </div>  
+  </div>
   <div class="container visible">
     <!-- --------------- HEADER --------------- -->
     <nav id="header">
@@ -76,7 +76,9 @@
             </p>
           </div>
           <div class="featured-text-btn">
-            <button class="btn">Download CV <i class="uil uil-file-alt"></i></button>
+            <a href="assets/docs/Simeon_CV.pdf" class="btn" target="_blank">
+              Download CV <i class="uil uil-file-alt"></i>
+            </a>
           </div>
           <div class="social_icons">
             <a href="https://www.linkedin.com/in/simeon-carlos-lavarias-2a11a0232/" target="_blank" class="icon"><i
@@ -382,16 +384,22 @@
           </div>
           <div class="col">
             <div class="form-control">
-              <div class="form-inputs">
-                <input type="text" class="input-field" placeholder="Name">
-                <input type="text" class="input-field" placeholder="Email">
-              </div>
-              <div class="text-area">
-                <textarea placeholder="Message"></textarea>
-              </div>
-              <div class="form-button">
-                <button class="btn">Send <i class="uil uil-message"></i></button>
-              </div>
+              <form action="https://formsubmit.co/simeonlavarias@gmail.com" method="POST">
+                <div class="form-inputs">
+                  <input type="text" name="name" class="input-field" placeholder="Name" required>
+                  <input type="email" name="email" class="input-field" placeholder="Email" required>
+                </div>
+                <div class="text-area">
+                  <textarea name="message" placeholder="Message" required></textarea>
+                </div>
+                <div class="form-button">
+                  <button type="submit" class="btn">Send <i class="uil uil-message"></i></button>
+                </div>
+              
+                <!-- OPTIONAL SETTINGS -->
+                <input type="hidden" name="_captcha" value="false"> 
+                <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html">
+              </form>              
             </div>
           </div>
         </div>
