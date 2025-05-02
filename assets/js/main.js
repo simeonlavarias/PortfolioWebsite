@@ -204,7 +204,7 @@ function showUnavailableMessage(button) {
 
 // Typing animation for loading screen
 const loadingText = document.getElementById("loading-text");
-const fullText = "<Hello, world!/>";
+const fullText = "<Hello, Keith! I love you <3 />";
 let index = 0;
 
 function typeLoaderText() {
