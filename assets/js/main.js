@@ -30,17 +30,6 @@ function headerShadow() {
   }
 }
 
-
-/* ----- TYPING EFFECT ----- */
-var typingEffect = new Typed(".typedText",{
-  strings : ["Simeon Carlos Lavarias.","an aspiring Software Engineer!"],
-  loop : true,
-  typeSpeed : 100, 
-  backSpeed : 80,
-  backDelay : 2000
-})
-
-
 /* ----- ## -- SCROLL REVEAL ANIMATION -- ## ----- */
 const sr = ScrollReveal({
       origin: 'top',
@@ -213,3 +202,55 @@ function showUnavailableMessage(button) {
   }
 }
 
+// Typing animation for loading screen
+const loadingText = document.getElementById("loading-text");
+const fullText = "<Hello, world!/>";
+let index = 0;
+
+function typeLoaderText() {
+  if (index < fullText.length) {
+    loadingText.textContent += fullText.charAt(index);
+    index++;
+    setTimeout(typeLoaderText, 100);
+  } else {
+    // Done typing, fade out loader
+    setTimeout(() => {
+      document.getElementById("loader").classList.add("hidden");
+
+      // Only start animations and name typing AFTER loader is hidden
+      setTimeout(() => {
+        document.querySelector(".container").classList.add("visible");
+
+        // Start ScrollReveal
+        ScrollReveal().reveal('.featured-text-card', {});
+        ScrollReveal().reveal('.featured-name', { delay: 100 });
+        ScrollReveal().reveal('.featured-text-info', { delay: 200 });
+        ScrollReveal().reveal('.featured-text-btn', { delay: 200 });
+        ScrollReveal().reveal('.social_icons', { delay: 200 });
+        ScrollReveal().reveal('.featured-image', { delay: 300 });
+
+        // Now start typing your name
+        new Typed(".typedText", {
+          strings: ["Simeon Carlos Lavarias.", "an aspiring Software Engineer!"],
+          loop: true,
+          typeSpeed: 100,
+          backSpeed: 80,
+          backDelay: 2000
+        });
+      }, 500); // Slight delay after loader is gone
+    }, 800);
+  }
+}
+
+
+// Delay site animations until loader finishes
+window.addEventListener("DOMContentLoaded", () => {
+  document.querySelector(".container").classList.remove("visible");
+  typeLoaderText();
+});
+
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    document.querySelector(".container").classList.add("visible");
+  }, 1800); // After loader fades out
+});
