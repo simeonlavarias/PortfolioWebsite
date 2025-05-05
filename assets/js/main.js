@@ -120,12 +120,11 @@ function setTheme(theme) {
         document.body.classList.remove("dark-theme");
         toggleButton.innerHTML = "⏾ Dark Mode";
     }
-    localStorage.setItem("theme", theme);
+    // localStorage.setItem("theme", theme); // ← Remove or comment this out
 }
 
-// Load saved theme on page load
-const savedTheme = localStorage.getItem("theme") || "light";
-setTheme(savedTheme);
+// Always start in light mode
+setTheme("light");
 
 toggleButton.addEventListener("click", () => {
     const currentTheme = document.body.classList.contains("dark-theme") ? "dark" : "light";
