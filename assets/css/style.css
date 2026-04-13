@@ -290,6 +290,7 @@ nav {
     width: 380px;
     height: 380px;
     object-fit: cover;
+    object-position: center 20%;
 }
 
 @keyframes imgFloat {
