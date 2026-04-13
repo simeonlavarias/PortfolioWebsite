@@ -1056,6 +1056,47 @@ body.dark-theme {
     color: var(--hover-orange);
 }
 
+/* ----- SCROLL TO TOP BUTTON ----- */
+#scrollTopBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 45px;
+    height: 45px;
+    background: var(--hover-orange);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(255, 123, 0, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background 0.3s ease;
+    z-index: 999;
+}
+
+#scrollTopBtn i {
+    font-size: 22px;
+}
+
+#scrollTopBtn.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#scrollTopBtn:hover {
+    background: #e06e00;
+}
+
+.dark-theme #scrollTopBtn {
+    box-shadow: 0 4px 12px rgba(255, 123, 0, 0.2);
+}
+
 * {
     transition: background-color 0.4s ease, color 0.4s ease;
 }

@@ -188,49 +188,60 @@ function showUnavailableMessage(button) {
   }
 }
 
-/* ----- LOADING SCREEN + TYPED.JS ----- */
-
-const loadingText = document.getElementById("loading-text");
-const fullText = "<Hello, world! />";
-let index = 0;
-
-function typeLoaderText() {
-  if (index < fullText.length) {
-    loadingText.textContent += fullText.charAt(index);
-    index++;
-    setTimeout(typeLoaderText, 100);
-  } else {
-    // Done typing — fade out loader
-    setTimeout(() => {
-      document.getElementById("loader").classList.add("hidden");
-
-      // Start main content after loader fades
-      setTimeout(() => {
-        document.querySelector(".container").classList.add("visible");
-
-        // Start ScrollReveal
-        ScrollReveal().reveal('.featured-text-card', {});
-        ScrollReveal().reveal('.featured-name', { delay: 100 });
-        ScrollReveal().reveal('.featured-text-info', { delay: 200 });
-        ScrollReveal().reveal('.featured-text-btn', { delay: 200 });
-        ScrollReveal().reveal('.social_icons', { delay: 200 });
-        ScrollReveal().reveal('.featured-image', { delay: 300 });
-
-        // Start typing name
-        new Typed(".typedText", {
-          strings: ["Simeon Carlos Lavarias.", "an aspiring Software Engineer!"],
-          loop: true,
-          typeSpeed: 100,
-          backSpeed: 80,
-          backDelay: 2000
-        });
-      }, 500);
-    }, 800);
-  }
+/* ----- SCROLL TO TOP BUTTON ----- */
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-// Fixed: removed conflicting window.load listener that fought with the loader
+/* ----- LOADING SCREEN + TYPED.JS ----- */
+// Everything inside DOMContentLoaded so the DOM is guaranteed ready
 window.addEventListener("DOMContentLoaded", () => {
+
+  // Hide main content until loader finishes
   document.querySelector(".container").classList.remove("visible");
+
+  const loadingText = document.getElementById("loading-text");
+  const fullText = "<Hello, world! />";
+  let index = 0;
+
+  function typeLoaderText() {
+    if (index < fullText.length) {
+      loadingText.textContent += fullText.charAt(index);
+      index++;
+      setTimeout(typeLoaderText, 100);
+    } else {
+      // Done typing — wait a moment then fade out loader
+      setTimeout(() => {
+        document.getElementById("loader").classList.add("hidden");
+
+        // Show main content after loader fades out
+        setTimeout(() => {
+          document.querySelector(".container").classList.add("visible");
+
+          // Start typing name animation
+          new Typed(".typedText", {
+            strings: ["Simeon Carlos Lavarias.", "an aspiring Software Engineer!"],
+            loop: true,
+            typeSpeed: 100,
+            backSpeed: 80,
+            backDelay: 2000
+          });
+
+        }, 500); // slight delay after loader gone
+      }, 800); // pause after typing finishes
+    }
+  }
+
   typeLoaderText();
+
+  // Scroll to top button visibility
+  const scrollTopBtn = document.getElementById("scrollTopBtn");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      scrollTopBtn.classList.add("show");
+    } else {
+      scrollTopBtn.classList.remove("show");
+    }
+  });
+
 });
