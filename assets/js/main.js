@@ -234,6 +234,15 @@ window.addEventListener("DOMContentLoaded", () => {
 
   typeLoaderText();
 
+  // Scroll progress bar
+  const progressBar = document.getElementById("scrollProgressBar");
+  window.addEventListener("scroll", () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = (scrollTop / docHeight) * 100;
+    progressBar.style.width = progress + "%";
+  });
+
   // Scroll to top button visibility
   const scrollTopBtn = document.getElementById("scrollTopBtn");
   window.addEventListener("scroll", () => {
