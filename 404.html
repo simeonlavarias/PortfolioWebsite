@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thank You! | Simeon Portfolio</title>
+  <title>Page Not Found | Simeon Portfolio</title>
   <link rel="shortcut icon" href="assets/images/favicon.jpg" type="image/x-icon">
   <link rel="stylesheet" href="assets/css/style.css">
-  <!-- Apply saved theme before paint to avoid flash -->
   <script>
     if (localStorage.getItem('theme') === 'dark') {
       document.documentElement.classList.add('dark-theme-preload');
@@ -14,31 +13,34 @@
   </script>
   <style>
     html.dark-theme-preload body { background-color: #121212; color: #f0f0f0; }
-    .thank-you-page {
+    .not-found-page {
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
       padding: 1rem;
-    }
-    .thank-you-container {
-      max-width: 600px;
-      width: 100%;
-      background: var(--color-white);
-      padding: 3rem 2rem;
-      border-radius: 20px;
-      box-shadow: 0 10px 25px var(--first-shadow-color);
       text-align: center;
     }
-    .thank-you-container h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      color: var(--hover-orange);
+    .not-found-container {
+      max-width: 560px;
+      width: 100%;
     }
-    .thank-you-container p {
+    .not-found-code {
+      font-size: 7rem;
+      font-weight: 700;
+      color: var(--hover-orange);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .not-found-container h2 {
+      font-size: 1.5rem;
+      color: var(--text-color-second);
+      margin-bottom: 1rem;
+    }
+    .not-found-container p {
       font-size: 1rem;
-      margin-bottom: 2rem;
       color: var(--text-color-muted);
+      margin-bottom: 2rem;
     }
   </style>
 </head>
@@ -48,11 +50,12 @@
       document.body.classList.add('dark-theme');
     }
   </script>
-  <div class="thank-you-page">
-    <div class="thank-you-container">
-      <h1>Thank you!</h1>
-      <p>Your message has been successfully sent. I'll get back to you as soon as I can.</p>
-      <a href="index.html" class="btn">Return to Homepage</a>
+  <div class="not-found-page">
+    <div class="not-found-container">
+      <p class="not-found-code">404</p>
+      <h2>Page Not Found</h2>
+      <p>The page you're looking for doesn't exist or has been moved.</p>
+      <a href="index.html" class="btn">Back to Homepage</a>
     </div>
   </div>
 </body>

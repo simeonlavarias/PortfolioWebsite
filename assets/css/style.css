@@ -8,6 +8,8 @@
 
     --text-color-second: rgb(68, 68, 68);
     --text-color-third: #4169E1;
+    --text-color-muted: #777;
+    --text-color-hint: #999;
 
     --first-color: rgb(110, 87, 224);
     --first-color-hover: rgb(40, 91, 212);
@@ -16,7 +18,9 @@
     --third-color: rgb(192, 166, 49);
     --hover-orange: #ff7b00;
     --first-shadow-color: rgba(0, 0, 0, 0.1);
-
+    --border-color: #aaa;
+    --footer-bg: #f8f8f8;
+    --btn-bg: #efefef;
 }
 
 /* ----- BASE ----- */
@@ -25,6 +29,19 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+}
+
+/* ----- ACCESSIBILITY ----- */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
 
 /* ----- SMOOTH SCROLL ----- */
@@ -59,7 +76,7 @@ html {
   font-size: 13px;
   font-weight: 500;
   padding: 12px 20px;
-  background: #efefef;
+  background: var(--btn-bg);
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -161,6 +178,16 @@ nav {
 .nav-menu-btn i {
     font-size: 28px;
     cursor: pointer;
+}
+
+.hamburger-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: inherit;
+    display: flex;
+    align-items: center;
 }
 
 .active-link {
@@ -271,7 +298,7 @@ nav {
 /* ----- FEATURED IMAGE BOX ----- */
 .featured-image {
     display: flex;
-    justify-content: right;
+    justify-content: flex-end;
     align-content: center;
     min-height: 80vh;
     width: 50%;
@@ -331,7 +358,7 @@ nav {
 }
 
 .top-header span {
-    color: #999;
+    color: var(--text-color-hint);
 }
 
 h3 {
@@ -359,7 +386,7 @@ h3 {
 .about-info p {
     text-align: center;
     font-size: 15px;
-    color: #777;
+    color: var(--text-color-muted);
 }
 
 .about-btn button {
@@ -527,7 +554,7 @@ h3 {
     padding: 8px 16px;
     font-size: 14px;
     font-weight: 500;
-    background-color: #efefef;
+    background-color: var(--btn-bg);
     color: var(--text-color-second);
     border-radius: 10px;
     text-decoration: none;
@@ -596,6 +623,12 @@ h3 {
     gap: 12px;
 }
 
+button.project-box {
+    border: none;
+    cursor: pointer;
+    font: inherit;
+}
+
 .project-box h3 {
     font-size: 18px;
     font-weight: 600;
@@ -613,9 +646,10 @@ h3 {
     margin-bottom: 25px;
 }
 
-.project-box label {
+.project-box label,
+.project-box span {
     font-size: 15px;
-    color: #777;
+    color: var(--text-color-muted);
     margin-top: 5px;
     line-height: 1.4;
     max-width: 90%;
@@ -640,7 +674,8 @@ h3 {
 
 .project-box:hover.project-box i,
 .project-box:hover.project-box>h3,
-.project-box:hover.project-box>label {
+.project-box:hover.project-box>label,
+.project-box:hover.project-box>span {
     color: var(--color-white);
     z-index: 2;
 }
@@ -685,7 +720,7 @@ h3 {
 .contact-info:hover.contact-info h2,
 .contact-info:hover.contact-info p,
 .contact-info:hover.contact-info i {
-    color: #777;
+    color: var(--text-color-muted);
     z-index: 2;
 }
 
@@ -707,7 +742,7 @@ h3 {
     width: 50%;
     height: 55px;
     background: transparent;
-    border: 2px solid #AAA;
+    border: 2px solid var(--border-color);
     border-radius: 10px;
     padding-inline: 20px;
     outline: none;
@@ -717,7 +752,7 @@ textarea {
     width: 100%;
     height: 250px;
     background: transparent;
-    border: 2px solid #AAA;
+    border: 2px solid var(--border-color);
     border-radius: 10px;
     padding: 15px 20px;
     outline: none;
@@ -742,7 +777,7 @@ footer {
     align-items: center;
     flex-direction: column;
     row-gap: 30px;
-    background: #F8F8F8;
+    background: var(--footer-bg);
     padding-block: 40px 60px;
 }
 
@@ -1114,6 +1149,35 @@ body.dark-theme {
     box-shadow: 0 4px 12px rgba(255, 123, 0, 0.2);
 }
 
-* {
+/* Scope theme transition to elements that actually change color on toggle */
+body, nav, footer, .container, .section,
+.btn, .project-box, .project-card, .about-info, .skills-box,
+.input-field, textarea, .icon, .nav-link, .footer_menu_list a,
+.featured-text-card span, .contact-info, .project-cards,
+h1, h2, h3, p, label {
     transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* ----- SCROLL REVEAL ANIMATIONS ----- */
+.reveal {
+    opacity: 0;
+    transform: translateY(-60px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal-left {
+    transform: translateX(-60px);
+}
+
+.reveal-right {
+    transform: translateX(60px);
+}
+
+.reveal-delay-1 { transition-delay: 100ms; }
+.reveal-delay-2 { transition-delay: 200ms; }
+.reveal-delay-3 { transition-delay: 300ms; }
+
+.reveal.active {
+    opacity: 1;
+    transform: none;
 }
