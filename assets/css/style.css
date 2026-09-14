@@ -606,6 +606,75 @@ h3 {
     }
 }
 
+/* ----- CERTIFICATIONS ----- */
+.cert-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 0 2rem;
+    margin-top: 2rem;
+}
+
+.cert-card {
+    background-color: var(--color-white);
+    color: var(--text-color-second);
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    text-decoration: none;
+    max-width: 480px;
+    width: 100%;
+}
+
+.cert-card:hover,
+.cert-card:focus-visible {
+    transform: translateY(-6px);
+}
+
+.cert-badge {
+    width: 110px;
+    height: 110px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.cert-info h3 {
+    color: var(--text-color-second);
+    margin-bottom: 0.4rem;
+}
+
+.cert-info p {
+    color: var(--text-color-muted);
+    font-size: 14px;
+    margin-bottom: 0.6rem;
+}
+
+.cert-verify {
+    color: var(--hover-orange);
+    font-weight: 600;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+@media only screen and (max-width: 540px) {
+    .cert-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .cert-badge {
+        width: 90px;
+        height: 90px;
+    }
+}
+
 .project-box {
     position: relative;
     display: flex;
@@ -1017,6 +1086,20 @@ body.dark-theme {
 
 .dark-theme .project-box {
     background-color: #1e1e1e;
+}
+
+.dark-theme .cert-card {
+    background-color: #1e1e1e !important;
+    color: #f0f0f0 !important;
+    box-shadow: 1px 8px 10px 2px #2c2c2c;
+}
+
+.dark-theme .cert-info p {
+    color: #ccc !important;
+}
+
+.dark-theme .cert-verify {
+    color: var(--hover-orange) !important;
 }
 
 .dark-theme .contact-info {
