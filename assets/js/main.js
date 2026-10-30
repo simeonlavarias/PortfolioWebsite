@@ -1,8 +1,27 @@
 /* ----- NAVIGATION BAR FUNCTION ----- */
-function myMenuFunction() {
+function myMenuFunction(btn) {
   const menuBtn = document.getElementById("myNavMenu");
-  menuBtn.className = menuBtn.className === "nav-menu" ? "nav-menu responsive" : "nav-menu";
+  const isOpen = menuBtn.classList.toggle("responsive");
+  if (btn) {
+    btn.setAttribute("aria-expanded", String(isOpen));
+    const icon = btn.querySelector("i");
+    if (icon) icon.className = isOpen ? "uil uil-times" : "uil uil-bars";
+  }
 }
+
+function closeMobileMenu() {
+  const menuBtn = document.getElementById("myNavMenu");
+  if (!menuBtn.classList.contains("responsive")) return;
+  menuBtn.classList.remove("responsive");
+  const hamburger = document.querySelector(".hamburger-btn");
+  if (hamburger) {
+    hamburger.setAttribute("aria-expanded", "false");
+    const icon = hamburger.querySelector("i");
+    if (icon) icon.className = "uil uil-bars";
+  }
+}
+
+document.querySelectorAll(".nav-link").forEach(link => link.addEventListener("click", closeMobileMenu));
 
 /* ----- HEADER SHADOW ----- */
 function headerShadow() {

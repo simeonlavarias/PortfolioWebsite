@@ -5,6 +5,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- --------- SEO / SHARE PREVIEW ---------- -->
+  <meta name="description" content="Portfolio of Simeon Carlos Lavarias, a Software Engineering student skilled in full-stack development, networking, and cybersecurity. CompTIA Security+ certified.">
+  <meta property="og:title" content="Simeon | Portfolio">
+  <meta property="og:description" content="Software Engineering student skilled in full-stack development, networking, and cybersecurity.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://simeon-portfolio-website.netlify.app/">
+  <meta property="og:image" content="https://simeon-portfolio-website.netlify.app/assets/images/avatar.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
   <!-- --------- UNICONS ---------- -->
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 
@@ -15,6 +24,13 @@
   <link rel="shortcut icon" href="assets/images/favicon.jpg" type="image/x-icon">
 
   <title>Simeon | Portfolio</title>
+
+  <!-- Apply saved theme before paint to avoid a light-mode flash on load -->
+  <script>
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark-theme-preload');
+    }
+  </script>
 </head>
 
 <body>
@@ -60,7 +76,7 @@
         </button>
       </div>
       <div class="nav-menu-btn">
-        <button onclick="myMenuFunction()" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="myNavMenu" class="hamburger-btn">
+        <button onclick="myMenuFunction(this)" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="myNavMenu" class="hamburger-btn">
           <i class="uil uil-bars"></i>
         </button>
       </div>
