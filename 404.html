@@ -5,57 +5,88 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Page Not Found | Simeon Portfolio</title>
   <link rel="shortcut icon" href="assets/images/favicon.jpg" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Poppins:wght@400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="assets/css/style.css">
   <script>
-    if (localStorage.getItem('theme') === 'dark') {
-      document.documentElement.classList.add('dark-theme-preload');
-    }
+    try {
+      if (localStorage.getItem('theme') === 'dark') {
+        document.documentElement.classList.add('dark-theme-preload');
+      }
+    } catch (e) {}
   </script>
   <style>
-    html.dark-theme-preload body { background-color: #121212; color: #f0f0f0; }
     .not-found-page {
+      position: relative;
+      z-index: 1;
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
+      min-height: 100svh;
       padding: 1rem;
       text-align: center;
+      perspective: 1000px;
     }
     .not-found-container {
       max-width: 560px;
       width: 100%;
+      padding: 3rem 2rem 2.75rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background-color: var(--surface);
+      box-shadow: var(--shadow-lg), inset 0 1px 0 var(--highlight);
+      animation: cardRise 0.9s var(--ease) both;
     }
-    .not-found-code {
-      font-size: 7rem;
+    .not-found-container .not-found-code {
+      font-family: var(--font-mono);
+      font-size: clamp(5rem, 18vw, 7.5rem);
       font-weight: 700;
-      color: var(--hover-orange);
       line-height: 1;
-      margin-bottom: 0.5rem;
+      letter-spacing: -0.04em;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+      text-shadow:
+        0 1px 0 #ef6f00,
+        0 2px 0 #df6500,
+        0 3px 0 #cf5c00,
+        0 4px 0 #bf5300,
+        0 5px 0 #ae4a00,
+        0 6px 0 #9e4300,
+        0 22px 34px rgba(255, 123, 0, 0.35);
     }
     .not-found-container h2 {
-      font-size: 1.5rem;
-      color: var(--text-color-second);
-      margin-bottom: 1rem;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--text-strong);
+      margin-bottom: 0.75rem;
     }
     .not-found-container p {
       font-size: 1rem;
-      color: var(--text-color-muted);
+      color: var(--text-muted);
       margin-bottom: 2rem;
+    }
+    @keyframes cardRise {
+      from { opacity: 0; transform: rotateX(18deg) translateY(30px); }
+      to { opacity: 1; transform: none; }
     }
   </style>
 </head>
 <body>
   <script>
-    if (localStorage.getItem('theme') === 'dark') {
-      document.body.classList.add('dark-theme');
-    }
+    try {
+      if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-theme');
+      }
+    } catch (e) {}
   </script>
   <div class="not-found-page">
     <div class="not-found-container">
       <p class="not-found-code">404</p>
       <h2>Page Not Found</h2>
       <p>The page you're looking for doesn't exist or has been moved.</p>
-      <a href="index.html" class="btn">Back to Homepage</a>
+      <a href="index.html" class="btn btn-primary">Back to Homepage</a>
     </div>
   </div>
 </body>

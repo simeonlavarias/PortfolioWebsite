@@ -1,3 +1,20 @@
+/* ----- SAFE STORAGE (private browsing can block localStorage) ----- */
+function readStoredTheme() {
+  try {
+    return localStorage.getItem("theme");
+  } catch (e) {
+    return null;
+  }
+}
+
+function storeTheme(theme) {
+  try {
+    localStorage.setItem("theme", theme);
+  } catch (e) {
+    /* theme just won't persist */
+  }
+}
+
 /* ----- NAVIGATION BAR FUNCTION ----- */
 function myMenuFunction(btn) {
   const menuBtn = document.getElementById("myNavMenu");
@@ -23,6 +40,11 @@ function closeMobileMenu() {
 
 document.querySelectorAll(".nav-link").forEach(link => link.addEventListener("click", closeMobileMenu));
 
+// Close the mobile menu when tapping outside the nav bar
+document.addEventListener("click", e => {
+  if (!e.target.closest("#header")) closeMobileMenu();
+});
+
 /* ----- IMAGE LIGHTBOX FOR EXPERIENCE ATTACHMENTS ----- */
 const lightboxOverlay = document.createElement("div");
 lightboxOverlay.className = "lightbox-overlay";
@@ -46,16 +68,16 @@ document.querySelectorAll(".exp-attachment-img").forEach(thumb => {
 
 lightboxOverlay.addEventListener("click", closeLightbox);
 document.addEventListener("keydown", e => {
-  if (e.key === "Escape") closeLightbox();
+  if (e.key === "Escape") {
+    closeLightbox();
+    closeMobileMenu();
+  }
 });
 
-/* ----- HEADER SHADOW ----- */
+/* ----- HEADER STATE ON SCROLL ----- */
 function headerShadow() {
   const navHeader = document.getElementById("header");
-  const scrolled = document.documentElement.scrollTop > 50;
-  navHeader.style.boxShadow = scrolled ? "0 1px 6px rgba(0, 0, 0, 0.1)" : "none";
-  navHeader.style.height = scrolled ? "70px" : "90px";
-  navHeader.style.lineHeight = scrolled ? "70px" : "90px";
+  navHeader.classList.toggle("scrolled", document.documentElement.scrollTop > 50);
 }
 
 /* ----- SCROLL REVEAL (native IntersectionObserver — no CDN needed) ----- */
@@ -67,6 +89,78 @@ function initReveal() {
   }, { threshold: 0.15 });
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+}
+
+/* ----- 3D TILT + SPOTLIGHT ON CARDS -----
+   Elements with data-tilt="<max degrees>" rotate toward the pointer.
+   .is-hovered drives the "pop-out" of inner elements; .is-tilting keeps the
+   perspective transform alive until the card has eased back flat. */
+function initTilt() {
+  const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!finePointer || reduceMotion) return;
+
+  const states = [];
+
+  document.querySelectorAll("[data-tilt]").forEach(el => {
+    const max = parseFloat(el.dataset.tilt) || 8;
+    const s = { rect: null, tx: 0, ty: 0, x: 0, y: 0, hover: false, leftAt: 0, raf: 0 };
+    states.push(s);
+
+    const tick = () => {
+      s.x += (s.tx - s.x) * 0.15;
+      s.y += (s.ty - s.y) * 0.15;
+      el.style.setProperty("--rx", s.y.toFixed(3) + "deg");
+      el.style.setProperty("--ry", s.x.toFixed(3) + "deg");
+
+      const settled = Math.abs(s.x) < 0.01 && Math.abs(s.y) < 0.01;
+      if (s.hover || !settled || performance.now() - s.leftAt < 700) {
+        s.raf = requestAnimationFrame(tick);
+      } else {
+        s.raf = 0;
+        el.classList.remove("is-tilting");
+        el.style.removeProperty("--rx");
+        el.style.removeProperty("--ry");
+      }
+    };
+
+    const run = () => {
+      if (!s.raf) s.raf = requestAnimationFrame(tick);
+    };
+
+    el.addEventListener("pointerenter", e => {
+      if (e.pointerType === "touch") return;
+      s.hover = true;
+      s.rect = el.getBoundingClientRect();
+      el.classList.add("is-tilting", "is-hovered");
+      run();
+    });
+
+    el.addEventListener("pointermove", e => {
+      if (!s.hover) return;
+      const r = s.rect || (s.rect = el.getBoundingClientRect());
+      const px = Math.min(Math.max((e.clientX - r.left) / r.width, 0), 1);
+      const py = Math.min(Math.max((e.clientY - r.top) / r.height, 0), 1);
+      s.tx = (px - 0.5) * 2 * max;
+      s.ty = (0.5 - py) * 2 * max;
+      el.style.setProperty("--gx", (px * 100).toFixed(1) + "%");
+      el.style.setProperty("--gy", (py * 100).toFixed(1) + "%");
+      run();
+    });
+
+    el.addEventListener("pointerleave", () => {
+      s.hover = false;
+      s.tx = 0;
+      s.ty = 0;
+      s.rect = null;
+      s.leftAt = performance.now();
+      el.classList.remove("is-hovered");
+      run();
+    });
+  });
+
+  // Cached rects go stale when the page scrolls under a hovered card
+  window.addEventListener("scroll", () => states.forEach(s => { s.rect = null; }), { passive: true });
 }
 
 /* ----- CHANGE ACTIVE NAV LINK ----- */
@@ -96,7 +190,7 @@ window.addEventListener('scroll', () => {
       scrollActive();
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      progressBar.style.width = (scrollTop / docHeight) * 100 + "%";
+      progressBar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + "%";
       scrollTopBtn.classList.toggle("show", scrollTop > 300);
       scrollTicking = false;
     });
@@ -108,12 +202,17 @@ window.addEventListener('scroll', () => {
 const toggleButton = document.getElementById("theme-toggle");
 
 function setTheme(theme) {
-  document.body.classList.toggle("dark-theme", theme === "dark");
-  toggleButton.innerHTML = theme === "dark" ? "𖤓 Light Mode" : "⏾ Dark Mode";
-  localStorage.setItem('theme', theme);
+  const isDark = theme === "dark";
+  document.body.classList.toggle("dark-theme", isDark);
+  // Keep the pre-paint class in sync, otherwise switching dark -> light
+  // left the page background dark.
+  document.documentElement.classList.toggle("dark-theme-preload", isDark);
+  toggleButton.innerHTML = isDark ? "𖤓 Light Mode" : "⏾ Dark Mode";
+  storeTheme(theme);
+  document.dispatchEvent(new CustomEvent("themechange", { detail: { theme } }));
 }
 
-setTheme(localStorage.getItem('theme') || 'light');
+setTheme(readStoredTheme() || 'light');
 
 toggleButton.addEventListener("click", () => {
   setTheme(document.body.classList.contains("dark-theme") ? "light" : "dark");
@@ -128,11 +227,15 @@ function showProjects(category) {
     const isActive = id === category;
     section.style.display = isActive ? "grid" : "none";
     section.classList.toggle("show", isActive);
+    if (isActive) {
+      // stagger the cards' entrance animation
+      section.querySelectorAll(".project-card").forEach((card, i) => card.style.setProperty("--i", i));
+    }
   });
 }
 
 function goBack() {
-  document.getElementById("projectCategories").style.display = "flex";
+  document.getElementById("projectCategories").style.display = "";
   document.getElementById("backButton").style.display = "none";
   ["software", "networking", "ml"].forEach(id => {
     const section = document.getElementById(id);
@@ -147,18 +250,18 @@ function showUnavailableMessage(button, event) {
   if (button.getAttribute('href') !== '#') return;
 
   const tooltip = document.createElement('span');
+  tooltip.className = "unavailable-tip";
   tooltip.textContent = "Not available yet!";
-  tooltip.style.cssText = 'position:absolute;background:#333;color:#fff;padding:5px 10px;border-radius:5px;font-size:12px;z-index:1000;opacity:0;transition:opacity 0.4s ease;pointer-events:none;';
 
   const rect = button.getBoundingClientRect();
   tooltip.style.left = rect.left + window.scrollX + 'px';
-  tooltip.style.top = rect.top + window.scrollY - 30 + 'px';
+  tooltip.style.top = rect.top + window.scrollY - 38 + 'px';
 
   document.body.appendChild(tooltip);
-  requestAnimationFrame(() => { tooltip.style.opacity = 1; });
+  requestAnimationFrame(() => tooltip.classList.add("show"));
 
   setTimeout(() => {
-    tooltip.style.opacity = 0;
+    tooltip.classList.remove("show");
     setTimeout(() => tooltip.remove(), 400);
   }, 1600);
 }
@@ -185,6 +288,8 @@ function showFormError(msg) {
 window.addEventListener("DOMContentLoaded", () => {
   document.querySelector(".container").classList.remove("visible");
 
+  initTilt();
+
   const loadingText = document.getElementById("loading-text");
   const fullText = "<Hello, world! />";
   let index = 0;
@@ -198,15 +303,23 @@ window.addEventListener("DOMContentLoaded", () => {
         document.getElementById("loader").classList.add("hidden");
         setTimeout(() => {
           document.querySelector(".container").classList.add("visible");
+          // Tell the 3D scene (hero3d.js) to start its fly-in
+          document.documentElement.classList.add("site-ready");
+          document.dispatchEvent(new Event("site:ready"));
           initReveal();
 
-          new Typed(".typedText", {
-            strings: ["Simeon Carlos Lavarias.", "a Cybersecurity GRC Engineer!"],
-            loop: true,
-            typeSpeed: 100,
-            backSpeed: 80,
-            backDelay: 2000
-          });
+          if (window.Typed) {
+            new Typed(".typedText", {
+              strings: ["Simeon Carlos Lavarias.", "a Cybersecurity GRC Engineer!"],
+              loop: true,
+              typeSpeed: 100,
+              backSpeed: 80,
+              backDelay: 2000
+            });
+          } else {
+            // typed.js CDN unavailable: still show the name
+            document.querySelector(".typedText").textContent = "Simeon Carlos Lavarias.";
+          }
         }, 500);
       }, 800);
     }

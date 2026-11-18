@@ -5,54 +5,79 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thank You! | Simeon Portfolio</title>
   <link rel="shortcut icon" href="assets/images/favicon.jpg" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Poppins:wght@400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="assets/css/style.css">
   <!-- Apply saved theme before paint to avoid flash -->
   <script>
-    if (localStorage.getItem('theme') === 'dark') {
-      document.documentElement.classList.add('dark-theme-preload');
-    }
+    try {
+      if (localStorage.getItem('theme') === 'dark') {
+        document.documentElement.classList.add('dark-theme-preload');
+      }
+    } catch (e) {}
   </script>
   <style>
-    html.dark-theme-preload body { background-color: #121212; color: #f0f0f0; }
     .thank-you-page {
+      position: relative;
+      z-index: 1;
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
+      min-height: 100svh;
       padding: 1rem;
+      perspective: 1000px;
     }
     .thank-you-container {
       max-width: 600px;
       width: 100%;
-      background: var(--color-white);
-      padding: 3rem 2rem;
-      border-radius: 20px;
-      box-shadow: 0 10px 25px var(--first-shadow-color);
+      padding: 3rem 2rem 2.75rem;
       text-align: center;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background-color: var(--surface);
+      box-shadow: var(--shadow-lg), inset 0 1px 0 var(--highlight);
+      animation: cardRise 0.9s var(--ease) both;
     }
     .thank-you-container h1 {
-      font-size: 2.5rem;
+      font-size: clamp(2.2rem, 7vw, 2.9rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
       margin-bottom: 1rem;
-      color: var(--hover-orange);
+      color: var(--accent);
+      text-shadow:
+        0 1px 0 #ef6f00,
+        0 2px 0 #df6500,
+        0 3px 0 #cf5c00,
+        0 4px 0 #bf5300,
+        0 16px 28px rgba(255, 123, 0, 0.32);
     }
     .thank-you-container p {
       font-size: 1rem;
+      line-height: 1.7;
       margin-bottom: 2rem;
-      color: var(--text-color-muted);
+      color: var(--text-muted);
+    }
+    @keyframes cardRise {
+      from { opacity: 0; transform: rotateX(18deg) translateY(30px); }
+      to { opacity: 1; transform: none; }
     }
   </style>
 </head>
 <body>
   <script>
-    if (localStorage.getItem('theme') === 'dark') {
-      document.body.classList.add('dark-theme');
-    }
+    try {
+      if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-theme');
+      }
+    } catch (e) {}
   </script>
   <div class="thank-you-page">
     <div class="thank-you-container">
       <h1>Thank you!</h1>
       <p>Your message has been successfully sent. I'll get back to you as soon as I can.</p>
-      <a href="index.html" class="btn">Return to Homepage</a>
+      <a href="index.html" class="btn btn-primary">Return to Homepage</a>
     </div>
   </div>
 </body>
