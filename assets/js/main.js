@@ -23,6 +23,32 @@ function closeMobileMenu() {
 
 document.querySelectorAll(".nav-link").forEach(link => link.addEventListener("click", closeMobileMenu));
 
+/* ----- IMAGE LIGHTBOX FOR EXPERIENCE ATTACHMENTS ----- */
+const lightboxOverlay = document.createElement("div");
+lightboxOverlay.className = "lightbox-overlay";
+lightboxOverlay.innerHTML = '<img class="lightbox-img" alt="">';
+document.body.appendChild(lightboxOverlay);
+const lightboxImg = lightboxOverlay.querySelector(".lightbox-img");
+
+function openLightbox(src, alt) {
+  lightboxImg.src = src;
+  lightboxImg.alt = alt || "";
+  lightboxOverlay.classList.add("active");
+}
+
+function closeLightbox() {
+  lightboxOverlay.classList.remove("active");
+}
+
+document.querySelectorAll(".exp-attachment-img").forEach(thumb => {
+  thumb.addEventListener("click", () => openLightbox(thumb.src, thumb.alt));
+});
+
+lightboxOverlay.addEventListener("click", closeLightbox);
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") closeLightbox();
+});
+
 /* ----- HEADER SHADOW ----- */
 function headerShadow() {
   const navHeader = document.getElementById("header");

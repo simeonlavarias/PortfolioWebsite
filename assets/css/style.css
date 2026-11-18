@@ -451,6 +451,36 @@ h3 {
     object-fit: cover;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    cursor: zoom-in;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.exp-attachment-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+}
+
+.lightbox-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    cursor: zoom-out;
+}
+
+.lightbox-overlay.active {
+    display: flex;
+}
+
+.lightbox-img {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 
 .exp-header {
@@ -460,6 +490,10 @@ h3 {
     flex-wrap: wrap;
     width: 100%;
     gap: 0.5rem;
+}
+
+.exp-header h3 {
+    margin: 0;
 }
 
 .exp-date {
@@ -473,7 +507,7 @@ h3 {
     font-size: 14px;
     font-style: italic;
     color: var(--text-color-muted);
-    margin: 0.25rem 0 1rem;
+    margin: 0.2rem 0 1rem;
     width: 100%;
 }
 
