@@ -422,6 +422,24 @@ h3 {
     margin-bottom: 1.25rem;
 }
 
+.exp-reviews {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    width: 100%;
+    margin-top: 1.25rem;
+}
+
+.exp-review-img {
+    flex: 1 1 220px;
+    max-width: 260px;
+    max-height: 320px;
+    object-fit: contain;
+    border-radius: 12px;
+    background: #f4f4f4;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
 .exp-header {
     display: flex;
     justify-content: space-between;
@@ -1203,7 +1221,8 @@ body.dark-theme {
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4) !important;
 }
 
-.dark-theme .exp-img {
+.dark-theme .exp-img,
+.dark-theme .exp-review-img {
     background: #1a1a1a;
 }
 
