@@ -175,7 +175,7 @@ window.addEventListener("DOMContentLoaded", () => {
           initReveal();
 
           new Typed(".typedText", {
-            strings: ["Simeon Carlos Lavarias.", "an aspiring Software Engineer!"],
+            strings: ["Simeon Carlos Lavarias.", "a Cybersecurity GRC Engineer!"],
             loop: true,
             typeSpeed: 100,
             backSpeed: 80,

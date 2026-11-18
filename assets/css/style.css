@@ -400,6 +400,56 @@ h3 {
     color: var(--text-color-muted);
 }
 
+/* ---- EXPERIENCE SECTION ---- */
+.experience-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+}
+
+.experience-card {
+    align-items: flex-start;
+}
+
+.exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 0.5rem;
+}
+
+.exp-date {
+    font-size: 14px;
+    color: var(--text-color-muted);
+    white-space: nowrap;
+}
+
+.about-info.experience-card p {
+    text-align: left;
+    font-size: 14px;
+    font-style: italic;
+    color: var(--text-color-muted);
+    margin: 0.25rem 0 1rem;
+    width: 100%;
+}
+
+.experience-card ul {
+    list-style: disc;
+    padding-left: 1.2rem;
+    width: 100%;
+}
+
+.experience-card li {
+    font-size: 15px;
+    color: var(--text-color-muted);
+    margin-bottom: 0.5rem;
+    text-align: left;
+}
+
 .about-btn button {
     position: absolute;
     right: 20px;
@@ -1200,6 +1250,7 @@ body.dark-theme {
 .dark-theme h3,
 .dark-theme p,
 .dark-theme span,
+.dark-theme li,
 .dark-theme label {
     color: #f0f0f0 !important;
 }
