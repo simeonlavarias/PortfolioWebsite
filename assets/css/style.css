@@ -413,13 +413,25 @@ h3 {
     align-items: flex-start;
 }
 
-.exp-img {
+.exp-top {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
     width: 100%;
-    max-height: 260px;
-    object-fit: contain;
+    margin-bottom: 0.5rem;
+}
+
+.exp-avatar {
+    width: 72px;
+    height: 72px;
+    flex-shrink: 0;
     border-radius: 12px;
-    background: #f4f4f4;
-    margin-bottom: 1.25rem;
+    object-fit: cover;
+}
+
+.exp-title-block {
+    flex: 1;
+    min-width: 0;
 }
 
 .exp-reviews {
@@ -1221,7 +1233,6 @@ body.dark-theme {
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4) !important;
 }
 
-.dark-theme .exp-img,
 .dark-theme .exp-review-img {
     background: #1a1a1a;
 }
